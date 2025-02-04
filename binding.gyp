@@ -12,6 +12,7 @@
         "bindings/node/binding.cc",
         "src/parser.c",
       ],
+      "defines": [ "TS_LANGUAGE_VERSION=14" ],
       "variables": {
         "has_scanner": "<!(node -p \"fs.existsSync('src/scanner.c')\")"
       },
