@@ -21,9 +21,8 @@ module.exports = grammar({
     // - Для 'frontend', 'backend', 'listen' после ключевого слова должен идти идентификатор, затем перевод строки.
     section_header_line: ($) =>
       choice(
-        seq("global", $.newline),
-        seq("defaults", $.newline),
-        seq(choice("frontend", "backend", "listen"), $.identifier, $.newline),
+        seq($.global_defaults, $.newline),
+        seq($.fbl_set, $.identifier, $.newline),
       ),
 
     // Строка директивы: одна или более "слов" и перевод строки.
@@ -31,6 +30,9 @@ module.exports = grammar({
 
     // Пустая строка — это просто перевод строки.
     blank_line: ($) => $.newline,
+
+    global_defaults: ($) => token(/(global|defaults)/),
+    fbl_set: ($) => token(/(frontend|backend|listen)/),
 
     // Идентификатор для секций (для 'frontend', 'backend', 'listen')
     identifier: ($) => token(/[A-Za-z0-9-_]+/),

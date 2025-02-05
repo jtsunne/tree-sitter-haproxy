@@ -61,6 +61,14 @@
       "required": true,
       "types": [
         {
+          "type": "fbl_set",
+          "named": true
+        },
+        {
+          "type": "global_defaults",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -96,32 +104,20 @@
     }
   },
   {
-    "type": "backend",
-    "named": false
-  },
-  {
     "type": "comment",
     "named": true
   },
   {
-    "type": "defaults",
-    "named": false
+    "type": "fbl_set",
+    "named": true
   },
   {
-    "type": "frontend",
-    "named": false
-  },
-  {
-    "type": "global",
-    "named": false
+    "type": "global_defaults",
+    "named": true
   },
   {
     "type": "identifier",
     "named": true
-  },
-  {
-    "type": "listen",
-    "named": false
   },
   {
     "type": "newline",
