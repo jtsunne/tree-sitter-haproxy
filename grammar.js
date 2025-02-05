@@ -33,7 +33,7 @@ module.exports = grammar({
     blank_line: ($) => $.newline,
 
     // Идентификатор для секций (для 'frontend', 'backend', 'listen')
-    identifier: ($) => token(/[A-Za-z0-9-]+/),
+    identifier: ($) => token(/[A-Za-z0-9-_]+/),
 
     // Комментарий начинается с '#' и продолжается до конца строки.
     comment: ($) => token(seq("#", /.*/)),
