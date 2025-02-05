@@ -23,6 +23,10 @@
       "required": true,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "newline",
           "named": true
         },
@@ -32,6 +36,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "section",
@@ -69,15 +78,20 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "newline",
           "named": true
         },
         {
-          "type": "newline",
+          "type": "section_name",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "section_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "source_file",
@@ -113,10 +127,6 @@
   },
   {
     "type": "global_defaults",
-    "named": true
-  },
-  {
-    "type": "identifier",
     "named": true
   },
   {

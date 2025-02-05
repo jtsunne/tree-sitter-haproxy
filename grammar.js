@@ -22,17 +22,22 @@ module.exports = grammar({
     section_header_line: ($) =>
       choice(
         seq($.global_defaults, $.newline),
-        seq($.fbl_set, $.identifier, $.newline),
+        seq($.fbl_set, $.section_name, $.newline),
       ),
 
     // Строка директивы: одна или более "слов" и перевод строки.
-    directive_line: ($) => seq(repeat1($.word), $.newline),
+    directive_line: ($) => 
+      choice(
+        seq($.identifier, $.newline),
+        seq($.identifier, repeat1($.word), $.newline),
+      ),
 
     // Пустая строка — это просто перевод строки.
     blank_line: ($) => $.newline,
 
     global_defaults: ($) => token(/(global|defaults)/),
     fbl_set: ($) => token(/(frontend|backend|listen)/),
+    section_name: ($) => token(/[A-Za-z0-9-_]+/),
 
     // Идентификатор для секций (для 'frontend', 'backend', 'listen')
     identifier: ($) => token(/[A-Za-z0-9-_]+/),
