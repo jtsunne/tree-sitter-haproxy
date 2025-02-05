@@ -127,7 +127,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[A-Za-z0-9-]+"
+        "value": "[A-Za-z0-9-_]+"
       }
     },
     "comment": {
