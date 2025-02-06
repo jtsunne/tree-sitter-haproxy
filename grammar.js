@@ -29,6 +29,7 @@ module.exports = grammar({
     directive_line: ($) => 
       choice(
         seq($.identifier, $.newline),
+        seq($.identifier, $.number, $.newline),
         seq($.identifier, repeat1($.word), $.newline),
       ),
 
@@ -44,6 +45,8 @@ module.exports = grammar({
 
     // Комментарий начинается с '#' и продолжается до конца строки.
     comment: ($) => token(seq("#", /.*/)),
+
+    number: ($) => token(choice("0", seq(/[1-9]/, repeat(/[0-9]/)))),
 
     // Слово — последовательность символов, отличных от пробелов, символа '#' и перевода строки.
     word: ($) => token(/[^\s#\r\n]+/),
