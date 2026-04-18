@@ -31,7 +31,7 @@ module.exports = grammar({
             seq(
                 "global",
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._global_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._global_directive, "\n"), "\n")),
             ),
 
         defaults_section: ($) =>
@@ -39,7 +39,7 @@ module.exports = grammar({
                 "defaults",
                 optional(seq(/[ \t]+/, $.section_name)),
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._proxy_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._proxy_directive, "\n"), "\n")),
             ),
 
         frontend_section: ($) =>
@@ -48,7 +48,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._frontend_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._frontend_directive, "\n"), "\n")),
             ),
 
         backend_section: ($) =>
@@ -57,7 +57,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._backend_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._backend_directive, "\n"), "\n")),
             ),
 
         listen_section: ($) =>
@@ -67,7 +67,7 @@ module.exports = grammar({
                 $.section_name,
                 optional(seq(/[ \t]+/, $.bind_address)),
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._listen_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._listen_directive, "\n"), "\n")),
             ),
 
         resolvers_section: ($) =>
@@ -76,7 +76,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._resolvers_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._resolvers_directive, "\n"), "\n")),
             ),
 
         userlist_section: ($) =>
@@ -85,7 +85,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._userlist_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._userlist_directive, "\n"), "\n")),
             ),
 
         peers_section: ($) =>
@@ -94,7 +94,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._peers_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._peers_directive, "\n"), "\n")),
             ),
 
         mailers_section: ($) =>
@@ -103,7 +103,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._mailers_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._mailers_directive, "\n"), "\n")),
             ),
 
         cache_section: ($) =>
@@ -112,7 +112,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._cache_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._cache_directive, "\n"), "\n")),
             ),
 
         program_section: ($) =>
@@ -121,7 +121,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._program_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._program_directive, "\n"), "\n")),
             ),
 
         ring_section: ($) =>
@@ -130,7 +130,7 @@ module.exports = grammar({
                 /[ \t]+/,
                 $.section_name,
                 "\n",
-                repeat(seq(optional(/[ \t]+/), $._ring_directive, "\n")),
+                repeat(choice(seq(optional(/[ \t]+/), $._ring_directive, "\n"), "\n")),
             ),
 
         // DIRECTIVE CATEGORIES
